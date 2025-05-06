@@ -100,6 +100,7 @@ class WindTunnelVisualizer:
     - z_max (float): The maximum z-coordinate of the visualization space.
     """
 
+    # pylint: disable=too-many-positional-arguments
     def __init__(self, x_min: float, x_max: float, y_min: float, y_max: float,
                  z_min: float, z_max: float):
         self.x_min = x_min
@@ -128,6 +129,7 @@ class WindTunnelVisualizer:
 
     def add_mesh(self,
                  mesh: pv.PolyData,
+                 *,
                  color: str = "blue",
                  opacity: float = 1.0,
                  show_edges: bool = False,

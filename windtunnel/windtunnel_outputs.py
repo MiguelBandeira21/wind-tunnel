@@ -68,6 +68,7 @@ class WindTunnelOutputs:
         return input_mesh
 
     def get_streamlines(self,
+                        *,
                         n_points=100,
                         initial_step_length=1,
                         source_radius=1.1,

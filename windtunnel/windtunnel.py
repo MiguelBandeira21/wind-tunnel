@@ -162,6 +162,7 @@ class WindTunnel:
                  wind_speed_ms: float,
                  num_iterations: int,
                  resolution: int,
+                 *,
                  machine_group_name: Optional[str] = None,
                  inputs_base_dir: Optional[str] = "./inductiva_input"):
         """Runs wind tunnel simulation with specified parameters.
