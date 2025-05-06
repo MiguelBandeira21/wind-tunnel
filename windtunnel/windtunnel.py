@@ -24,7 +24,7 @@ Currently, the following variables are fixed:
     - The fluid being inject is air.
     - Air only flows in the positive x-direction.
     - The flow is incompressible (this seems to be a reasonable approximation
-    until about Mach 0.3 which is 102.9 m/s, or 370.44 km/h). 
+    until about Mach 0.3 which is 102.9 m/s, or 370.44 km/h).
     See https://www.quora.com/Is-air-an-incompressible-fluid
 """
 
@@ -92,7 +92,7 @@ class WindTunnel:
                    rotate_z_degrees: float = 0,
                    normalize: bool = True,
                    center: bool = True):
-        """Load an object into the windtunnel scenario. Optionally rotates, 
+        """Load an object into the windtunnel scenario. Optionally rotates,
         normalizes, and centers it.
 
         Args:
@@ -162,6 +162,7 @@ class WindTunnel:
                  wind_speed_ms: float,
                  num_iterations: int,
                  resolution: int,
+                 *,
                  machine_group_name: Optional[str] = None,
                  inputs_base_dir: Optional[str] = "./inductiva_input"):
         """Runs wind tunnel simulation with specified parameters.
@@ -199,6 +200,7 @@ class WindTunnel:
             num_subdomains=num_subdomains,
             area=self.object_area,
             length=self.object_length,
+            overwrite=True,
             **self._walls,
         )
 
