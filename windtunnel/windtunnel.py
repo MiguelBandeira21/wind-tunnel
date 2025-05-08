@@ -186,10 +186,6 @@ class WindTunnel:
 
         # Create a temporary directory
         temp_dir = tempfile.mkdtemp()
-        obj_dir = os.path.join(temp_dir, "constant/triSurface/")
-        os.makedirs(obj_dir)
-        object_path = os.path.join(obj_dir, "object.obj")
-        pre_processing.save_mesh_obj(self.object, object_path)
 
         inductiva.TemplateManager.render_dir(
             TEMPLATE_DIR,
@@ -200,9 +196,13 @@ class WindTunnel:
             num_subdomains=num_subdomains,
             area=self.object_area,
             length=self.object_length,
-            overwrite=True,
             **self._walls,
         )
+
+        obj_dir = os.path.join(temp_dir, "constant/triSurface/")
+        os.makedirs(obj_dir)
+        object_path = os.path.join(obj_dir, "object.obj")
+        pre_processing.save_mesh_obj(self.object, object_path)
 
         task = simulators.OpenFOAM().run(input_dir=temp_dir,
                                          on=mg,
