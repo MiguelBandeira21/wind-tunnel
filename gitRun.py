@@ -26,12 +26,13 @@ for i in range(DATASET_SIZE):
         object_path="assets/orientedUAV.obj",
         rotate_z_degrees=0,
         rotate_y_degrees=alpha,
+        translate=[0,0,2],
         normalize=False,
         center=True,
     )
 
     # Display the Windtunnel with the object
-    # wind_tunnel.display()
+    wind_tunnel.display()
 
     print("Starting UAV Simulation")
     # Submit a simulation task

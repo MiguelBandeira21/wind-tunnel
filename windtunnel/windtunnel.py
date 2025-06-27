@@ -91,6 +91,7 @@ class WindTunnel:
                    object_path: str,
                    rotate_z_degrees: float = 0,
                    rotate_y_degrees: float = 0,
+                   translate: list[float] = [0, 0, 0],
                    normalize: bool = True,
                    center: bool = True):
         """Load an object into the windtunnel scenario. Optionally rotates,
@@ -116,6 +117,8 @@ class WindTunnel:
             mesh = mesh.rotate_z(rotate_z_degrees)
         if rotate_y_degrees:
             mesh = mesh.rotate_y(rotate_y_degrees)
+        if translate:
+            mesh = mesh.translate(translate)
         if normalize:
             max_object_dimensions = (self.length * MAX_OBJECT_LENGTH_FACTOR,
                                      self.width * MAX_OBJECT_WIDTH_FACTOR,
